@@ -67,6 +67,7 @@ train_vectors = count_vectorizer.transform(tags)
 test_vectors = count_vectorizer.transform(tags_test)
 
 reg = LinearRegression().fit(train_vectors, y_train)
+# reg = linear_model.Ridge(alpha=.5).fit(train_vectors, y_train)
 
 result = reg.predict(test_vectors)
 
