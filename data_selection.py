@@ -53,13 +53,6 @@ tags_test = X_test['tags']
 
 count_vectorizer = feature_extraction.text.CountVectorizer(stop_words="english")
 
-
-# for i in tags:
-#     i.replace('|', ' ')
-#
-# for i in tags_test:
-#     i.replace('|', ' ')
-
 ## let's get counts for the first 5 tweets in the data
 example_train_vectors = count_vectorizer.fit_transform(tags)
 
