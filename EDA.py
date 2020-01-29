@@ -18,7 +18,7 @@ for v_id in df_yout['video_id'].unique():
     trending_times = sum(df_yout['video_id'] == v_id)
     df_yout.loc[(df_yout["video_id"] == v_id),"trending_times"] = trending_times
 
-df_youtube = df_yout.drop_duplicates(subset='video_id', keep='last', inplace=False) #drop
+df_yout = df_yout.drop_duplicates(subset='video_id', keep='last', inplace=False) #drop
 
 #%% Category_ID to Category_name
 
