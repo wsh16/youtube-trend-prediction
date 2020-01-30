@@ -10,6 +10,16 @@ from wordcloud import WordCloud, STOPWORDS
 
 df_yout = pd.read_csv("../input/youtube-new/USvideos.csv")
 
+#%% drop_duplicate
+df_yout = df_yout.drop_duplicates(subset=['video_id','trending_date'], keep='last', inplace=False) #duble drop
+
+df_yout['trending_times'] = np.nan #compute trending_times
+for v_id in df_yout['video_id'].unique():
+    trending_times = sum(df_yout['video_id'] == v_id)
+    df_yout.loc[(df_yout["video_id"] == v_id),"trending_times"] = trending_times
+
+df_yout = df_yout.drop_duplicates(subset='video_id', keep='last', inplace=False) #drop
+
 #%% Category_ID to Category_name
 
 df_yout['category_name'] = np.nan
